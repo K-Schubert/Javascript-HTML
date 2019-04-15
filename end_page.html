@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Thank you for participating!</title>
+        <style>
+            .boxed{
+                position:fixed;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 100px 100px;
+                border: 1px solid #ccc;
+                background-color: #CEE6F4;;
+                font-family: arial;
+                font-weight: bold;
+                font-size: 20pt;
+            }
+            .but{
+                position: absolute;
+                top: 80%;
+                left: 45%;
+            }
+            .download{
+                position: absolute;
+                top: 85%;
+                left: 45%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="boxed" align="center">
+            Thank you for participating!
+        </div>
+
+        <script>
+
+            // Download with header (attributes)
+            function download(data) {
+                var hiddenElement = document.createElement('a');
+                hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(data);
+                hiddenElement.target = '_blank';
+                hiddenElement.download = 'data.csv';
+                hiddenElement.click();
+                window.location.href='consent.html';
+            }
+
+            function csv_download(data){
+                var encodedUri = encodeURI(data);
+                var hiddenElement = document.createElement('a');
+                hiddenElement.setAttribute("href", encodedUri);
+                hiddenElement.setAttribute("download", "data.csv");
+                document.body.appendChild(hiddenElement);
+                hiddenElement.click();
+                window.location.href='consent.html';
+            }
+
+            var consentment_stored = localStorage.getItem('consentment');
+            var cues_A_stored = localStorage.getItem('cue_A');
+            var cues_B_stored = localStorage.getItem('cue_B');
+            var dealer_reco_stored = localStorage.getItem('dealer_recommendation');
+            var user_choice_stored = localStorage.getItem("user_choice");
+            var conditions_stored = localStorage.getItem("conditions");
+            var ev_pred_stored = localStorage.getItem("ev_pred");
+            var cue_pred_stored = localStorage.getItem("cue_pred");
+            var sex_stored = localStorage.getItem("sex");
+            var age_stored = localStorage.getItem("age");
+            var occupation_stored = localStorage.getItem("occupation");
+            var path_car_A_stored = localStorage.getItem("image_path_A");
+            var path_car_B_stored = localStorage.getItem("image_path_B");
+            var pred_reco_attr_stored = localStorage.getItem("pred_recommended_attr");
+            console.log("user consented: ", consentment_stored)
+            console.log("cues A: ", cues_A_stored)
+            console.log("cues B: ", cues_B_stored)
+            console.log("dealer_recommendation: ", dealer_reco_stored)
+            console.log("user choice is: ", user_choice_stored)
+            console.log("condition for trial is: ", conditions_stored)
+            console.log("EV prediction is: ", ev_pred_stored)
+            console.log("Best cue prediction is: ", cue_pred_stored)
+            console.log(sex_stored)
+            console.log(age_stored)
+            console.log(occupation_stored)
+            console.log(path_car_A_stored)
+            console.log(path_car_B_stored)
+            console.log(pred_reco_attr_stored)
+
+
+            let array1 = consentment_stored.split(",");
+            let array2 = cues_A_stored.split(",");
+            let array3 = cues_B_stored.split(",");
+            let array4 = dealer_reco_stored.split(",");
+            let array5 = user_choice_stored.split(",");
+            let array6 = conditions_stored.split(",");
+            let array7 = ev_pred_stored.split(",");
+            let array8 = cue_pred_stored.split(",");
+            let array9 = sex_stored.split(",");
+            let array10 = age_stored.split(",");
+            let array11 = occupation_stored.split(",");
+            let array12 = path_car_A_stored.split(",");
+            let array13 = path_car_B_stored.split(",");
+            let array14 = pred_reco_attr_stored.split(",");
+
+            var attributes = ["Price", "Mileage", "Initial Registration Date", "Seat heating"];
+            console.log(attributes)
+
+            let header = ["consentment", "car_A " + attributes[0], "car_A " + attributes[1], "car_A " + attributes[2], "car_A " + attributes[3], "car_B " + attributes[0], "car_B " + attributes[1], "car_B " + attributes[2], "car_B " + attributes[3] , "dealer_recommendation", "user_choice", "condition", "ev_pred", "cue_pred", "sex", "age", "occupation", "path_car_A", "path_car_B", "pred_reco_attribute"];
+            let data_download = [];
+            data_download[0] = header;
+
+            let j = 1;
+            let k = 0;
+            for (i=0; i < array1.length; i++){
+                data_download[j] = [array1[i]].concat(array2.slice(k,k+4), array3.slice(k,k+4), array4[i], array5[i], array6[i], array7[i], array8[i], array9[i], array10[i], array11[i], array12[i], array13[i], array14[i]);
+                j++;
+                k += 4;
+            }
+
+            let csvContent = "data:text/csv;charset=utf-8," + data_download.map(e=>e.join(",")).join("\n");
+
+            console.log(array2)
+            console.log(array3)
+            console.log(data_download)
+        </script>
+
+
+        <input class="but" type="button" value="New Trial" onclick="window.location.href = 'consent.html'" />
+        <input class="download" type="button" value="Download Data" onclick="csv_download(csvContent)" />
+    </body>
+</html>

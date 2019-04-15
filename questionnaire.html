@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Questionnaire</title>
+        <style>
+            .quest {
+                background-color: #CEE6F4;
+            }
+        </style>
+        <script>
+            function store(target) {
+                var existing = localStorage.getItem('table');
+                existing = existing ? existing.split(',') : [];
+                existing.push(target);
+                localStorage.setItem('table', existing.toString());
+                window.location.href='end_page.html';
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <form class="quest" name="user info" method="POST">
+
+            <b>Are you:</b><br>
+            <input id="male" type="radio" name="sex" value="male"> Male<br>
+            <input id="female" type="radio" name="sex" value="female"> Female<br>
+            <input id="other" type="radio" name="sex" value="other"> Other<br>
+            <br>
+
+            <b>Age group:</b><br>
+            <input type="radio" name="age" value="0-20"> 0 - 20 years old<br>
+            <input type="radio" name="age" value="20-30"> 21 - 30 years old<br>
+            <input type="radio" name="age" value="30-40"> 31 - 40 years old<br>
+            <input type="radio" name="age" value="40+"> 40+ years old<br>
+            <br>
+
+            <b>Are you:</b><br>
+            <input type="radio" name="occupation" value="student"> Student<br>
+            <input type="radio" name="occupation" value="not a student"> Other<br>
+            <br>
+
+            <input type="button" value="submit" onclick="store()" />
+
+        </form>
+
+        <script>
+            function store(){
+                var sex = document.querySelector('input[name="sex"]:checked').value;
+                var age = document.querySelector('input[name="age"]:checked').value;
+                var occupation = document.querySelector('input[name="occupation"]:checked').value;
+
+                var existing_sex = localStorage.getItem('sex');
+                existing_sex = existing_sex ? existing_sex.split(',') : [];
+                existing_sex.push(sex);
+                localStorage.setItem('sex', existing_sex.toString());
+
+                var existing_age = localStorage.getItem('age');
+                existing_age = existing_age ? existing_age.split(',') : [];
+                existing_age.push(age);
+                localStorage.setItem('age', existing_age.toString());
+
+                var existing_occup = localStorage.getItem('occupation');
+                existing_occup = existing_occup ? existing_occup.split(',') : [];
+                existing_occup.push(occupation);
+                localStorage.setItem('occupation', existing_occup.toString());
+
+                window.location.href = 'end_page.html';
+            }
+        </script>
+
+
+    </body>
+</html>

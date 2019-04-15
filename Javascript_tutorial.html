@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+
+        <title>Javascript_test</title>
+        <link rel="stylesheet" href="stylesheets/main.css"/>
+        <script src="Javascript/main.js"></script>
+
+    </head>
+
+    <body>
+
+        <h1> This is a testing page </h1>
+        <h3> Smaller header </h3>
+        <p>
+            <em>First</em> <strong>paragraph</strong>
+        </p>
+        <p class="secondary">
+            Second paragraph <br>
+            Second line of second paragraph <br>
+            <a href="http://google.com">google.com</a>
+
+            <ul>
+                <li>item 1 of unordered list</li>
+                <li>item 2 of unordered list</li>
+            </ul>
+
+            <ol>
+                <li>item 1 of ordered list</li>
+                <li>item 2 of ordered list</li>
+            </ol>
+        </p>
+
+        <p id="special">
+            Special paragraph
+        </p>
+
+        <hr>
+
+        <img src="http://placekitten.com/400/400"> <br>
+
+        <table border=1>
+            <tr>
+                <td>Car A</td>
+                <td>Car B</td>
+            </tr>
+        </table>
+
+        <input type="button" value="Continue" onclick="myFunction();" />
+
+        <div></div>
+        <span></span>
+
+        <script>
+
+            function summation(x, y){
+                if (x > y){
+                    return x+y;
+                }
+            }
+
+            document.write(summation(5,4));
+
+            document.write("<br>" + "Hello, World!");
+            var a = [0, 1, 1, 0];
+            a.push(1, 1);
+            a.pop();
+            a.shift();
+            a.unshift(11);
+
+            // in-line comment
+            /* multi-line
+            comment
+            */
+
+            for (i=0; i<a.length; i++){
+                document.write("<br>" + a[i]);
+            }
+
+            var car = {
+                "price": 20000,
+                "gas consumption": 7,
+                "mileage": 20000,
+                "leather seats": true,
+            };
+            document.write(car.price)
+            document.write(car["gas consumption"])
+            car.price = 10000;
+            car.origin = "CH";
+            car["age"] = 14;
+            delete car.age
+            document.write(car.origin)
+            car.hasOwnProperty(price)
+
+
+
+        </script>
+
+    </body>
+
+</html>
