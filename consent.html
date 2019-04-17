@@ -3,10 +3,12 @@
     <head>
         <title>Consent</title>
         <style>
+		
             .consent{
-                position: absolute;
+			  max-width: 900px;
+  margin: auto;
+                position: realtive;
                 top: 0%;
-                left:0%;
                 padding: 20px 20px;
                 background-color: #CEE6F4;
                 font-family: arial;
@@ -26,17 +28,18 @@
         </script>
     </head>
     <body>
+
         <div class="consent">
             Thank you for your participation in our study. <br>
             <br>This study aims at understanding human decision making.
             We are not interested in the individual decision, but in the general underlying cognitive process.<br>
-            <br>We will ask you to make one choice, and subsequently indicate your gender, age group and if you are a student.
-            All that information is anonymous.
-            The data will be used for scientific purposes only.<br>
+            <br>We will ask you to make one single choice, and subsequently indicate your gender, age group and if you are a student.
+            All that information is anonymous and the data will be used for scientific purposes only.<br>
             <br>Your participation in this research is entirely voluntary.<br>
 
             <br><input type="checkbox" name="consentment" value="yes"> <b>I hereby agree to participate in this study</b><br>
             <br><input type="button" value="Next" onclick="next()" />
         </div>
+
     </body>
 </html>

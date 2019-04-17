@@ -6,6 +6,10 @@
             .quest {
                 background-color: #CEE6F4;
             }
+			.content {
+  max-width: 900px;
+  margin: auto;
+}
         </style>
         <script>
             function store(target) {
@@ -20,6 +24,7 @@
     </head>
 
     <body>
+	<div class ="content">
         <form class="quest" name="user info" method="POST">
 
             <b>Are you:</b><br>
@@ -43,7 +48,7 @@
             <input type="button" value="submit" onclick="store()" />
 
         </form>
-
+</div>
         <script>
             function store(){
                 var sex = document.querySelector('input[name="sex"]:checked').value;

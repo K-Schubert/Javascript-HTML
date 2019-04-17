@@ -1,15 +1,24 @@
 <!DOCTYPE html>
+
+
+
 <html>
     <head>
         <title></title>
-    <style>
+
+
+    </head>
+	    <style>
         .secondary{
             text-align: center;
             font-family: arial;
+			  
         }
+		.content {
+  max-width: 900px;
+  margin: auto;
+}
     </style>
-
-    </head>
     <body>
 
         <script>
@@ -25,6 +34,9 @@
 
         </script>
 
+
+
+<div class="content">
         <table>
             <tr>
                 <td class="secondary" align="center"><b>Which car would you prefer ?<br><br><br></b></td><br>
@@ -38,7 +50,7 @@
                 <td class="secondary"><input type="button" value="Car B" onclick="store('Car B')" /></td>
             </tr>
         </table>
-
+ </div>
         <script>
             document.getElementById("img_A").src = localStorage.getItem("path_carA");
             document.getElementById("img_B").src = localStorage.getItem("path_carB");

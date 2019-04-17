@@ -144,9 +144,11 @@ switch(prediction){
                     var redirect = 'choice.html';
                     var pred_reco_attribute = 0;
                     var condition = "Condition 7";
+					var reco_attribute = attributes[k];
                     console.log("Condition 7")
                 } else {
                     var redirect = 'choice.html';
+					var reco_attribute = attribute_exp;
                     var pred_reco_attribute = 0;
                     var condition = "Condition 8";
                     console.log("Condition 8")
@@ -159,6 +161,7 @@ switch(prediction){
                     // Best cue recommendation
                     var recommendation = "Have you considered the " + attributes[k] + " ?";
                     var pred_reco_attribute = choice_best;
+					var reco_attribute = attributes[k];
                     var redirect = 'stimulus.html';
                     var condition = "Condition 3";
                     console.log("Condition 3")
@@ -166,6 +169,7 @@ switch(prediction){
                     // EV recommendation
                     var recommendation = "Have you considered the " + attribute_exp + " ?";
                     var pred_reco_attribute = choice_exp;
+					var reco_attribute = attribute_exp;
                     var redirect = 'stimulus.html';
                     var condition = "Condition 4";
                     console.log("Condition 4")
@@ -228,12 +232,15 @@ switch(prediction){
             case false:
                 if (Math.random() > 0.5){
                     var condition = "Condition 5";
+					var reco_attribute = attributes[k];
                     console.log("Condition 5")
                     var pred_reco_attribute = 0;
                     var redirect = 'choice.html';
                 } else {
                     var condition = "Condition 6";
                     console.log("Condition 6")
+					
+					var reco_attribute = attribute_not_choice_best;
                     var pred_reco_attribute = 0;
                     var redirect = 'choice.html';
                 }
@@ -243,13 +250,15 @@ switch(prediction){
 
                 if (Math.random() > 0.5){
                     var recommendation = "Have you considered the " + attributes[k] + " ?";
-                    var pred_reco_attribute = choice_best;
+                    var reco_attribute = attributes[k];
+					var pred_reco_attribute = choice_best;
                     var redirect = 'stimulus.html';
                     var condition = "Condition 1";
                     console.log("Condition 1")
                 } else {
                     var recommendation = "Have you considered the " + attribute_not_choice_best + " ?";
                     var pred_reco_attribute = not_choice_best;
+					var reco_attribute = attribute_not_choice_best;
                     var redirect = 'stimulus.html';
                     var condition = "Condition 2";
                     console.log("Condition 2")

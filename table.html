@@ -19,6 +19,10 @@
             text-align: center;
             font-size: 17pt;
         }
+		.content {
+  max-width: 900px;
+  margin: auto;
+}
         tr:hover {background-color: #f5f5f5;}
     </style>
 
@@ -27,6 +31,7 @@
     </head>
 
     <body>
+	<div class = "content">
         <table width="1000" height="400">
             <tr>
                 <td></td>
@@ -64,7 +69,8 @@
                 <td class="secondary">"*" = Yes<br>"-" = No</td>
             </tr>
         </table>
-
+		 <input id="nextPage" type="button" value="Continue" onclick="" />
+</div>
 
         <script>
             document.getElementById("img_A").src = path_carA;
@@ -119,6 +125,12 @@
             existing_pred_reco_attr = existing_pred_reco_attr ? existing_pred_reco_attr.split(',') : [];
             existing_pred_reco_attr.push(pred_reco_attribute);
             localStorage.setItem('pred_recommended_attr', existing_pred_reco_attr.toString());
+			
+			var existing_reco_attr = localStorage.getItem('reco_attribute');
+            existing_reco_attr = existing_reco_attr ? existing_reco_attr.split(',') : [];
+            existing_reco_attr.push(reco_attribute);
+            localStorage.setItem('reco_attribute', existing_reco_attr.toString());
+			console.log(reco_attribute)
 
 
         </script>
@@ -132,7 +144,7 @@
             console.log("best cue choice:", choice_best)
         </script>
 
-        <input id="nextPage" type="button" value="Continue" onclick="" />
+       
 
         <script>
             document.getElementById("nextPage").onclick = function() {
