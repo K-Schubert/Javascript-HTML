@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Start</title>
+        <style>
+            .boxed{
+                position:fixed;
+                text-align: center;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                padding: 100px 100px;
+                border: 1px solid #ccc;
+                background-color: #CEE6F4;
+                font-family: arial;
+                font-weight: bold;
+                font-size: 20pt;
+            }
+            .button_pos{
+                position: absolute;
+                top: 80%;
+                left: 45%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="boxed" align="center">
+            Initialization...
+            <br>Press start.
+        </div>
+
+        <script>
+
+            var consentment = [];
+            var cue_A = [];
+            var cue_B = [];
+            var dealer_recommendation = [];
+            var user_choice = [];
+            var conditions = [];
+            var ev_pred = [];
+            var cue_pred = [];
+            var sex = [];
+            var age = [];
+            var occupation = [];
+            var image_path_A = [];
+            var image_path_B = [];
+            var pred_recommended_attr = [];
+			var recommended_attr = [];
+			var datetime = []
+            localStorage.setItem("consentment", consentment);
+            localStorage.setItem("cue_A", cue_A);
+            localStorage.setItem("cue_B", cue_B);
+            localStorage.setItem("dealer_recommendation", dealer_recommendation);
+            localStorage.setItem("user_choice", user_choice);
+            localStorage.setItem("conditions", conditions);
+            localStorage.setItem("ev_pred", ev_pred);
+            localStorage.setItem("cue_pred", cue_pred);
+            localStorage.setItem("sex", sex);
+            localStorage.setItem("age", age);
+            localStorage.setItem("occupation", occupation);
+            localStorage.setItem("image_path_A", image_path_A);
+            localStorage.setItem("image_path_B", image_path_B);
+            localStorage.setItem("pred_recommended_attr", pred_recommended_attr);
+            localStorage.setItem("recommended_attr", recommended_attr);
+			localStorage.setItem("dates", dates);
+		
+		
+
+        </script>
+
+        <input class="button_pos" type="button" value="Start" onclick="window.location.href = 'index.html'" />
+			
+			
+    </body>
+			 
+
+</html>
