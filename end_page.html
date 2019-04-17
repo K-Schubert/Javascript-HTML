@@ -69,6 +69,7 @@
             var path_car_A_stored = localStorage.getItem("image_path_A");
             var path_car_B_stored = localStorage.getItem("image_path_B");
             var pred_reco_attr_stored = localStorage.getItem("pred_recommended_attr");
+            var reco_attr_stored = localStorage.getItem("reco_attribute");
             console.log("user consented: ", consentment_stored)
             console.log("cues A: ", cues_A_stored)
             console.log("cues B: ", cues_B_stored)
@@ -82,7 +83,8 @@
             console.log(occupation_stored)
             console.log(path_car_A_stored)
             console.log(path_car_B_stored)
-            console.log(pred_reco_attr_stored)
+            console.log(pred_reco_attr_stored)			
+            console.log(reco_attr_stored)
 
 
             let array1 = consentment_stored.split(",");
@@ -99,18 +101,19 @@
             let array12 = path_car_A_stored.split(",");
             let array13 = path_car_B_stored.split(",");
             let array14 = pred_reco_attr_stored.split(",");
+            let array15 = reco_attr_stored.split(",");
 
             var attributes = ["Price", "Mileage", "Initial Registration Date", "Seat heating"];
             console.log(attributes)
 
-            let header = ["consentment", "car_A " + attributes[0], "car_A " + attributes[1], "car_A " + attributes[2], "car_A " + attributes[3], "car_B " + attributes[0], "car_B " + attributes[1], "car_B " + attributes[2], "car_B " + attributes[3] , "dealer_recommendation", "user_choice", "condition", "ev_pred", "cue_pred", "sex", "age", "occupation", "path_car_A", "path_car_B", "pred_reco_attribute"];
+            let header = ["consentment", "car_A " + attributes[0], "car_A " + attributes[1], "car_A " + attributes[2], "car_A " + attributes[3], "car_B " + attributes[0], "car_B " + attributes[1], "car_B " + attributes[2], "car_B " + attributes[3] , "dealer_recommendation", "user_choice", "condition", "ev_pred", "cue_pred", "sex", "age", "occupation", "path_car_A", "path_car_B", "pred_reco_attribute", "recommended_attribute"];
             let data_download = [];
             data_download[0] = header;
 
             let j = 1;
             let k = 0;
             for (i=0; i < array1.length; i++){
-                data_download[j] = [array1[i]].concat(array2.slice(k,k+4), array3.slice(k,k+4), array4[i], array5[i], array6[i], array7[i], array8[i], array9[i], array10[i], array11[i], array12[i], array13[i], array14[i]);
+                data_download[j] = [array1[i]].concat(array2.slice(k,k+4), array3.slice(k,k+4), array4[i], array5[i], array6[i], array7[i], array8[i], array9[i], array10[i], array11[i], array12[i], array13[i], array14[i], array15[i]);
                 j++;
                 k += 4;
             }
