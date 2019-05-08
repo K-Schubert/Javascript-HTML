@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+
+    <style>
+	.content {
+  max-width: 900px;
+  margin: auto;
+}
+        .continue{
+            position: absolute;
+            top: 80%;
+            left: 50%;
+        }
+        .talkbubble {
+            background: #CEE6F4;
+            position: absolute;
+            -moz-border-radius: 10px;
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            top: 10%;
+            left: 23%;
+            text-align: center;
+            padding: 30px 30px 30px 30px;
+            font-family: arial;
+            font-weight: bold;
+            font-size: 15pt;
+            width:25%;
+            word-wrap: break-word;
+        }
+        .talkbubble:before {
+            content: "";
+            position: absolute;
+            right: -7%;
+            top: 26px;
+            border-top: 20px solid transparent;
+            border-left: 33px solid #CEE6F4;
+            border-bottom: 20px solid transparent;
+        }
+        .certif {
+            position: absolute;
+            top: 0;
+			position: absolute;
+            -moz-border-radius: 1px;
+            -webkit-border-radius: 1px;
+            border-radius: 1px;
+            left: 70%;
+            padding: 30px 30px 30px 30px;
+        }
+        .image {
+            position: absolute
+            top: 0%;
+            left: 20%;
+        }
+
+    </style>
+
+    </head>
+    <body>
+	<div class ="content">
+        <table align="center">
+            <tr>
+                <td><img class="image" src="images/carDealer.png" width="600" height="400"/></td>
+            </tr>
+        </table>
+
+        <div id="recommendation" class="talkbubble"></div>
+        <div class="certif"><img src="images/dealer_certif.png" width="60" height="80" /></div>
+
+        <script>
+            var recommendation = localStorage.getItem("recommendation");
+            document.getElementById('recommendation').innerText = recommendation;
+
+
+
+
+
+            //var redirect = localStorage.getItem('redirect');
+            //if (redirect == 'dealer_reco.html'){
+            //    redirect2 = 'choice.html';
+            //    var redirect4 = 'friend_reco.hmtl';
+            //    localStorage.setItem('redirect3', redirect4)
+            //} else if (redirect == 'friend_reco.html'){
+            //    redirect = 'choice3.html';
+            //}
+
+            //var redirect2 = localStorage.getItem('redirect2');
+            //if (redirect2 == 'dealer_reco.html'){
+            //    redirect2 = 'questionnaire.html';
+            //}
+        </script>
+
+    <input class="continue" type="button" value="Continue" onclick="window.location.href = 'choice.html'" />
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Control</title>
+        <style>
+		.content {
+  max-width: 900px;
+  margin: auto;
+}
+        .but{
+            position: relative;
+            top: 10%;
+            left: 50%;
+        }
+        .instructions{
+            position: relative;
+            top: 0%;
+
+            padding: 20px 20px;
+            background-color: #CEE6F4;
+            font-family: arial;
+            font-size: 12pt;
+			  max-width: 900px;
+  margin: auto;
+        }
+        </style>
+    </head>
+    <body>
+        <script>
+
+        </script>
+
+        <div class="instructions">
+            <b>This is a test to see if you understood the instructions correctly.</b><br>
+            <br>In the following table, which car costs less than 5000 CHF and was registered after 2014?<br>
+            <br>
+            <img src="images/control.png" width="600" heigth="550" /><br>
+            <br><b>Please select an answer below:</b>
+
+            <div class ="content">
+                <form class="quest" name="user info" method="POST">
+
+                    <br>
+                    <input id="A" type="radio" name="car" value="car_A"> Car A<br>
+                    <input id="B" type="radio" name="car" value="car_B"> Car B<br>
+                    <br>
+
+                </form>
+            </div>
+
+
+            <br><input class="but" type="button" value="Continue" onclick="next()" />
+
+            <script>
+
+
+                function next(){
+                    var test = document.querySelector('input[name="car"]:checked').value;
+                    if (test == 'car_B'){
+                        window.location.href= 'table.html';
+                    } else {
+                        alert('Sorry, wrong answer! Please have a look at the instructions again!')
+                        window.location.href= 'instructions.html';
+                    }
+                }
+
+            </script>
+
+        </body>
+</html>

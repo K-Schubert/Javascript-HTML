@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <title></title>
+
+    <style>
+        th{
+            background-color: #CEE6F4;
+            color: white;
+            text-align: center;
+            padding: 300;
+        }
+        body{
+            background: white;
+            font-family: arial;
+        }
+        .secondary{
+            text-align: center;
+            font-size: 17pt;
+        }
+		.content {
+  max-width: 900px;
+  margin: auto;
+}
+        tr:hover {background-color: #f5f5f5;}
+    </style>
+
+    <script type="text/javascript" src="CueGenerator.js"></script>
+
+    </head>
+
+    <body>
+	<div class = "content">
+        <table width="1000" height="400">
+            <tr>
+                <td></td>
+                <td><img id="img_A" src="" width="300"/></td>
+                <td><img id="img_B" src="" width="300" /></td>
+            </tr>
+            <tr>
+                <th></th>
+                <th>Car A</th>
+                <th>Car B</th>
+            </tr>
+            <tr>
+                <td><b><script>document.write(attributes[0])</script> < 5'000 CHF</b></td>
+                <td class="secondary"><script>document.write(symbols.car_A[0])</script></td>
+                <td class="secondary"><script>document.write(symbols.car_B[0])</script></td>
+            </tr>
+            <tr>
+                <td><b><script>document.write(attributes[1])</script> < 100'000 KM</b></td>
+                <td class="secondary"><script>document.write(symbols.car_A[1])</script></td>
+                <td class="secondary"><script>document.write(symbols.car_B[1])</script></td>
+            </tr>
+            <tr>
+                <td><b><script>document.write(attributes[2])</script> after 2014</b></td>
+                <td class="secondary"><script>document.write(symbols.car_A[2])</script></td>
+                <td class="secondary"><script>document.write(symbols.car_B[2])</script></td>
+            </tr>
+            <tr>
+                <td><b><script>document.write(attributes[3])</script></b></td>
+                <td class="secondary"><script>document.write(symbols.car_A[3])</script></td>
+                <td class="secondary"><script>document.write(symbols.car_B[3])</script></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td class="secondary">"*" = Yes<br>"-" = No</td>
+            </tr>
+        </table>
+		 <input id="nextPage" type="button" value="Continue" onclick="" />
+</div>
+
+        <script>
+            document.getElementById("img_A").src = path_carA;
+            document.getElementById("img_B").src = path_carB;
+
+            localStorage.setItem("path_carA", path_carA);
+            localStorage.setItem("path_carB", path_carB);
+
+            localStorage.setItem("attributes", attributes);
+
+            var existing_path_A = localStorage.getItem('image_path_A');
+            existing_path_A = existing_path_A ? existing_path_A.split(',') : [];
+            existing_path_A.push(path_carA);
+            localStorage.setItem('image_path_A', existing_path_A.toString());
+
+            var existing_path_B = localStorage.getItem('image_path_B');
+            existing_path_B = existing_path_B ? existing_path_B.split(',') : [];
+            existing_path_B.push(path_carB);
+            localStorage.setItem('image_path_B', existing_path_B.toString());
+
+            var existing_cue_A = localStorage.getItem('cue_A');
+            existing_cue_A = existing_cue_A ? existing_cue_A.split(',') : [];
+            existing_cue_A.push(cues.car_A);
+            localStorage.setItem('cue_A', existing_cue_A.toString());
+
+            var existing_cue_B = localStorage.getItem('cue_B');
+            existing_cue_B = existing_cue_B ? existing_cue_B.split(',') : [];
+            existing_cue_B.push(cues.car_B);
+            localStorage.setItem('cue_B', existing_cue_B.toString());
+
+            var existing_reco = localStorage.getItem('reco');
+            existing_reco = existing_reco ? existing_reco.split(',') : [];
+            existing_reco.push(reco);
+            localStorage.setItem('reco', existing_reco.toString());
+
+            var existing_dealer_reco = localStorage.getItem('dealer_recommendation');
+            existing_dealer_reco = existing_dealer_reco ? existing_dealer_reco.split(',') : [];
+            existing_dealer_reco.push(dealer_reco);
+            localStorage.setItem('dealer_recommendation', existing_dealer_reco.toString());
+
+            var existing_cond = localStorage.getItem('conditions');
+            existing_cond = existing_cond ? existing_cond.split(',') : [];
+            existing_cond.push(condition);
+            localStorage.setItem('conditions', existing_cond.toString());
+
+            var existing_ev = localStorage.getItem('ev_pred');
+            existing_ev = existing_ev ? existing_ev.split(',') : [];
+            existing_ev.push(choice_exp);
+            localStorage.setItem('ev_pred', existing_ev.toString());
+
+            var existing_cue = localStorage.getItem('cue_pred');
+            existing_cue = existing_cue ? existing_cue.split(',') : [];
+            existing_cue.push(choice_best);
+            localStorage.setItem('cue_pred', existing_cue.toString());
+
+            var existing_pred_reco_attr = localStorage.getItem('pred_recommended_attr');
+            existing_pred_reco_attr = existing_pred_reco_attr ? existing_pred_reco_attr.split(',') : [];
+            existing_pred_reco_attr.push(pred_reco_attribute);
+            localStorage.setItem('pred_recommended_attr', existing_pred_reco_attr.toString());
+
+			var existing_reco_attr = localStorage.getItem('recommended_attr');
+            existing_reco_attr = existing_reco_attr ? existing_reco_attr.split(',') : [];
+            existing_reco_attr.push(reco_attribute);
+            localStorage.setItem('recommended_attr', existing_reco_attr.toString());
+        </script>
+
+
+        <script>
+            //Debugging
+            console.log(exp_A, exp_B)
+            console.log(cues)
+			console.log(reco_attribute)
+			console.log(existing_reco_attr.toString())
+            console.log("exp value choice:", choice_exp)
+            console.log("best cue choice:", choice_best)
+        </script>
+
+
+
+        <script>
+            var counter = localStorage.getItem('counter');
+            if (counter.length == 1){
+                localStorage.setItem("redirect_one", redirect);
+                localStorage.setItem("redirect_two", redirect2);
+            }
+
+            var redirect_one = localStorage.getItem("redirect_one", redirect);
+            var redirect_two = localStorage.getItem("redirect_two", redirect2);
+
+            document.getElementById("nextPage").onclick = function() {
+                let counter = localStorage.getItem('counter');
+                if (counter.length == 1){
+                    window.location.href = "choice.html"; //redirect
+                } else if (counter.length == 2){
+                    window.location.href = redirect_one; //redirect
+                } else if (counter.length == 3){
+                    window.location.href = redirect_two; //redirect
+                }
+
+            };
+
+            console.log(counter, redirect_one, redirect_two)
+
+        </script>
+
+
+    </body>
+</html>

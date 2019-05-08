@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+
+
+<html>
+    <head>
+        <title></title>
+
+
+    </head>
+	    <style>
+        .secondary{
+            text-align: center;
+            font-family: arial;
+
+        }
+		.content {
+  max-width: 900px;
+  margin: auto;
+}
+    </style>
+    <body>
+
+        <script>
+
+            var redirect_one = localStorage.getItem('redirect_one');
+            var redirect_two = localStorage.getItem('redirect_two');
+            var counter = localStorage.getItem('counter');
+            console.log(redirect_one, redirect_two, counter, counter.length)
+
+            function store(target, redirect, redirect2, counter) {
+                var existing = localStorage.getItem('user_choice');
+                existing = existing ? existing.split(',') : [];
+                existing.push(target);
+                //table.push(target);
+                localStorage.setItem('user_choice', existing.toString());
+
+                if (counter.length == 1){
+                    window.location.href= 'table.html';
+                    counter += 0;
+                    localStorage.setItem('counter', counter);
+
+                } else if (counter.length == 2){
+                    window.location.href= 'table.html';
+                    counter += 0;
+                    localStorage.setItem('counter', counter);
+
+                } else if (counter.length > 2){
+                    window.location.href= 'questionnaire.html';
+                    counter += 0;
+                    localStorage.setItem('counter', counter);
+                }
+
+            }
+
+        </script>
+
+
+
+<div class="content">
+        <table>
+            <tr>
+                <td class="secondary" align="center"><b>Which car would you prefer ?<br><br><br></b></td><br>
+            </tr>
+            <tr>
+                <td><img id="img_A" src="" width="300" /></td>
+                <td><img id="img_B" src="" width="300" /></td>
+            </tr>
+            <tr>
+                <td class="secondary"><input type="button" value="Car A" onclick="store('Car A', redirect_one, redirect_two, counter)" /></td>
+                <td class="secondary"><input type="button" value="Car B" onclick="store('Car B', redirect_one, redirect_two, counter)" /></td>
+            </tr>
+        </table>
+ </div>
+        <script>
+            document.getElementById("img_A").src = localStorage.getItem("path_carA");
+            document.getElementById("img_B").src = localStorage.getItem("path_carB");
+        </script>
+
+    </body>
+</html>
